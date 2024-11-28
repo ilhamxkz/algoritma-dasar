@@ -1,0 +1,40 @@
+Start
+DECLARE intejer totalGaji , gajiPokok,upahLembur ,jamLembur ,tunjangan , Bonus
+DECLARE string jabatan
+
+ASSIGN upahLembur = 25000
+OUTPUT "Masukan jabatan anda"
+input jabatan
+if jabatan = manajer 
+	gajiPokok = 10000000
+	tunjangan = 3000000
+	if else jabatan = supervisor
+		gajiPokok = 7000000
+		tunjangan = 2000000
+		else 
+			jabatan = staff
+			gajiPokok = 5000000
+			tunjangan = 1000000
+		end if
+	end if	
+end if
+OUTPUT "masukan rating anda dari 1 sampai 5"
+INPUT Bonus
+if Bonus = 5
+	Bonus = 0,2 * gajiPokok
+	if else Bonus = 4
+		Bonus = 0,15 *gajiPokok
+		if else Bonus = 3
+			Bonus = 0,1 * gajiPokok
+			if else Bonus = 2
+				Bonus = 0,05 * gajiPokok
+			end if
+		end if
+	end if 
+end if
+OUTPUT "Berapa jam Anda lembur?"
+INPUT jamLembur
+ASSIGN upahLembur = upahlembur * jamLembur
+ASSIGN totalGaji = gajiPokok + Bonus + upahLembur + tunjangan
+Output "jadi gaji Anda sebagai"&jabata &"adalah" &totalGaji 
+				

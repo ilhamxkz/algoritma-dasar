@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Flowgorithm ilham hadi m XIRPL1"/>
+        <attribute name="authors" value="ilham hadi mutaqin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-11-06 12.32.21 AM"/>
+        <attribute name="created" value="aWxoYW0gaGFkaSBtdXRhcWluO1dPUktQUk8tTElURTsyMDI0LTExLTA1OzEwLjExLjA0IFBNOzM5MTM="/>
+        <attribute name="edited" value="aWxoYW0gaGFkaSBtdXRhcWluO1dPUktQUk8tTElURTsyMDI0LTExLTA2OzEyLjMyLjIxIEFNOzE7NDAxMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="totalGaji, gajiPokok, upahLembur, jamLembur, tunjangan, Bonus" type="Integer" array="False" size=""/>
+            <declare name="jabatan" type="String" array="False" size=""/>
+            <assign variable="upahLembur" expression="25000"/>
+            <output expression="&quot;masukan jabatan anda:&quot;" newline="True"/>
+            <input variable="jabatan"/>
+            <if expression="jabatan = &quot;manajer&quot;">
+                <then>
+                    <assign variable="gajiPokok" expression="10000000"/>
+                    <assign variable="tunjangan" expression="3000000"/>
+                </then>
+                <else>
+                    <if expression="jabatan = &quot;supervisor&quot;">
+                        <then>
+                            <assign variable="gajiPokok" expression="7000000"/>
+                            <assign variable="tunjangan" expression="2000000"/>
+                        </then>
+                        <else>
+                            <assign variable="jabatan" expression="&quot;staff&quot;"/>
+                            <assign variable="gajiPokok" expression="5000000"/>
+                            <assign variable="tunjangan" expression="1000000"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;masukan rating anda dari 1 sampai 5&quot;" newline="True"/>
+            <input variable="Bonus"/>
+            <if expression="Bonus = 5">
+                <then>
+                    <assign variable="Bonus" expression="0.2 * gajiPokok"/>
+                </then>
+                <else>
+                    <if expression="Bonus = 4">
+                        <then>
+                            <assign variable="Bonus" expression="0.15 * gajiPokok"/>
+                        </then>
+                        <else>
+                            <if expression="Bonus = 3">
+                                <then>
+                                    <assign variable="Bonus" expression="0.1 * gajiPokok"/>
+                                </then>
+                                <else>
+                                    <if expression="Bonus = 2">
+                                        <then>
+                                            <assign variable="Bonus" expression="0.05 * gajiPokok"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;Berapa jam anda lembur?&quot;" newline="True"/>
+            <input variable="jamLembur"/>
+            <assign variable="upahLembur" expression="jamLembur * upahLembur"/>
+            <assign variable="totalGaji" expression="gajiPokok + Bonus + tunjangan + upahLembur"/>
+            <output expression="&quot;jadi gaji anda sebagai&quot;&amp;jabatan &amp;&quot;adalah&quot; &amp;totalgaji" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
